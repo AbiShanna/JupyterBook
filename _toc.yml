@@ -1,0 +1,27 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Easy
+    chapters:
+    - file: Running_Sum_of_1d_Array
+    - file: Find_Pivot_Index
+    - file: Isomorphic_Strings
+    - file: Is_Subsequence 
+    - file: Merge_Two_Sorted_Lists
+    - file: Search_in_a_Binary_Search_Tree
+    - file: Middle_of_the_Linked_List
+    - file: First_Bad_Version
+    - file: Binary_Search
+    - file: N-ary_Tree_Preorder_Traversal
+    - file: Maximum_Sum_Subarray
+    - file: SmallestSubarrayGreaterSum
+  - caption: Medium
+    chapters:
+    - file: Longest_Substring_With_K_Distinct_Chars
+    - file: Fruits_Into_Basket
+  - caption: Hard
+    chapters:
+    - file: Longest_Substring_with_Distinct_Characters
