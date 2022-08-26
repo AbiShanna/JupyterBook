@@ -25,3 +25,5 @@ parts:
   - caption: Hard
     chapters:
     - file: Longest_Substring_with_Distinct_Characters
+    - file: Longest_Substring_With_Same_Letters_After_Replacement
+    - file: Longest_Subarray_With_Ones_After_Replacement

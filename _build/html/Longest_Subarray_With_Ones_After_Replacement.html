@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Find Pivot Index &#8212; Solutions to coding assesments</title>
+    <title>Longest Subarray with Ones after Replacement &#8212; Solutions to coding assesments</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Isomorphic Strings" href="Isomorphic_Strings.html" />
-    <link rel="prev" title="Running Sum of 1d Array" href="Running_Sum_of_1d_Array.html" />
+    <link rel="prev" title="Longest Substring with Same Letters after Replacement" href="Longest_Substring_With_Same_Letters_After_Replacement.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -118,14 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
   Easy
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Running_Sum_of_1d_Array.html">
    Running Sum of 1d Array
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Find_Pivot_Index.html">
    Find Pivot Index
   </a>
  </li>
@@ -202,7 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
   Hard
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Longest_Substring_with_Distinct_Characters.html">
    Longest Substring with Distinct Characters
@@ -213,8 +212,8 @@ const thebe_selector_output = ".output, .cell_output"
    Longest Substring with Same Letters after Replacement
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Longest_Subarray_With_Ones_After_Replacement.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Longest Subarray with Ones after Replacement
   </a>
  </li>
@@ -308,7 +307,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FFind_Pivot_Index.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLongest_Subarray_With_Ones_After_Replacement.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -336,7 +335,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Find_Pivot_Index.md"
+        <a href="_sources/Longest_Subarray_With_Ones_After_Replacement.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -385,7 +384,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Find Pivot Index</h1>
+                <h1>Longest Subarray with Ones after Replacement</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -397,24 +396,27 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="find-pivot-index">
-<h1>Find Pivot Index<a class="headerlink" href="#find-pivot-index" title="Permalink to this headline">#</a></h1>
-<p>Given an array of integers nums, calculate the pivot index of this array.</p>
-<p>The pivot index is the index where the sum of all the numbers strictly to the left of the index is equal to the sum of all the numbers strictly to the index’s right.
-If the index is on the left edge of the array, then the left sum is 0 because there are no elements to the left. This also applies to the right edge of the array.
-Return the leftmost pivot index. If no such index exists, return -1.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="longest-subarray-with-ones-after-replacement">
+<h1>Longest Subarray with Ones after Replacement<a class="headerlink" href="#longest-subarray-with-ones-after-replacement" title="Permalink to this headline">#</a></h1>
+<p>Given an array containing 0s and 1s, if you are allowed to replace no more than ‘k’ 0s with 1s, find the length of the longest contiguous subarray having all 1s.</p>
 <p>Implementation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">accumulate</span>
-<span class="kn">import</span> <span class="nn">operator</span>
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">pivotIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="n">left_sum</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">accumulate</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">))</span>
-        <span class="n">left_sum</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">del</span> <span class="n">left_sum</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
-            <span class="k">if</span> <span class="n">left_sum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">left_sum</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">nums</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">left_sum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-                <span class="k">return</span> <span class="n">i</span>
-        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="k">def</span> <span class="nf">longest_substring_with_ones_after_replacement</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+  <span class="n">max_len</span> <span class="o">=</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">inf</span>
+  <span class="n">window_start</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">cntr</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+          <span class="n">cntr</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_len</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="n">window_start</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">window_start</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">cntr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">k</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">window_start</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">cntr</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">window_start</span> <span class="o">+=</span> <span class="mi">1</span>
+
+  <span class="k">return</span> <span class="n">max_len</span>
+
             
 </pre></div>
 </div>
@@ -447,19 +449,12 @@ Return the leftmost pivot index. If no such index exists, return -1.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Running_Sum_of_1d_Array.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Longest_Substring_With_Same_Letters_After_Replacement.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Running Sum of 1d Array</p>
+            <p class="prev-next-title">Longest Substring with Same Letters after Replacement</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="Isomorphic_Strings.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Isomorphic Strings</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
