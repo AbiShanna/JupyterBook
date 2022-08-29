@@ -18,6 +18,10 @@ parts:
     - file: N-ary_Tree_Preorder_Traversal
     - file: Maximum_Sum_Subarray
     - file: SmallestSubarrayGreaterSum
+    - file: Number_of_Islands
+    - file: Biggest_Island
+    - file: Flood_Fill
+    - file: Pair_With_Target_Sum
   - caption: Medium
     chapters:
     - file: Longest_Substring_With_K_Distinct_Chars

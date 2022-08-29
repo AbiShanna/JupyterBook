@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Isomorphic Strings &#8212; Solutions to coding assesments</title>
+    <title>Flood Fill &#8212; Solutions to coding assesments</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Is Subsequence" href="Is_Subsequence.html" />
-    <link rel="prev" title="Find Pivot Index" href="Find_Pivot_Index.html" />
+    <link rel="next" title="Pair With Target Sum" href="Pair_With_Target_Sum.html" />
+    <link rel="prev" title="Biggest Island" href="Biggest_Island.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -129,8 +129,8 @@ const thebe_selector_output = ".output, .cell_output"
    Find Pivot Index
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Isomorphic_Strings.html">
    Isomorphic Strings
   </a>
  </li>
@@ -189,8 +189,8 @@ const thebe_selector_output = ".output, .cell_output"
    Biggest Island
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Flood_Fill.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Flood Fill
   </a>
  </li>
@@ -328,7 +328,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FIsomorphic_Strings.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FFlood_Fill.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -356,7 +356,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Isomorphic_Strings.md"
+        <a href="_sources/Flood_Fill.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -405,7 +405,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Isomorphic Strings</h1>
+                <h1>Flood Fill</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -417,29 +417,28 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="isomorphic-strings">
-<h1>Isomorphic Strings<a class="headerlink" href="#isomorphic-strings" title="Permalink to this headline">#</a></h1>
-<p>Given two strings s and t, determine if they are isomorphic.</p>
-<p>Two strings s and t are isomorphic if the characters in s can be replaced to get t.
-All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="flood-fill">
+<h1>Flood Fill<a class="headerlink" href="#flood-fill" title="Permalink to this headline">#</a></h1>
+<p>Any image can be represented by a 2D integer array (i.e., a matrix) where each cell represents the pixel value of the image.
+Flood fill algorithm takes a starting cell (i.e., a pixel) and a color. The given color is applied to all horizontally and vertically connected cells with the same color as that of the starting cell. Recursively, the algorithm fills cells with the new color until it encounters a cell with a different color than the starting cell.
+Given a matrix, a starting cell, and a color, flood fill the matrix.</p>
 <p>Implementation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">isIsomorphic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">)))</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="n">t</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">True</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
-            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-                    <span class="k">return</span> <span class="kc">False</span>
-                <span class="n">res</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-            <span class="k">elif</span> <span class="n">res</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">!=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-                <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">return</span> <span class="kc">True</span>
-                    
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">floodFill</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">new_val</span><span class="p">):</span>
+    <span class="n">cntNeighbors</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">new_val</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mat</span>
+
+<span class="k">def</span> <span class="nf">cntNeighbors</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">return</span> <span class="n">mat</span>
+    <span class="k">if</span> <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">old</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">mat</span>
+    <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">new</span>
+
+    <span class="n">cntNeighbors</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
+    <span class="n">cntNeighbors</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
+    <span class="n">cntNeighbors</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
+    <span class="n">cntNeighbors</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
+            
 </pre></div>
 </div>
 </section>
@@ -471,17 +470,17 @@ All occurrences of a character must be replaced with another character while pre
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Find_Pivot_Index.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Biggest_Island.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Find Pivot Index</p>
+            <p class="prev-next-title">Biggest Island</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Is_Subsequence.html" title="next page">
+    <a class='right-next' id="next-link" href="Pair_With_Target_Sum.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Is Subsequence</p>
+        <p class="prev-next-title">Pair With Target Sum</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
