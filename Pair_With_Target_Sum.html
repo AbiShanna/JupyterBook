@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title> &#8212; Solutions to coding assesments</title>
+    <title>Pair With Target Sum &#8212; Solutions to coding assesments</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,6 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Longest Substring with K Distinct Characters" href="Longest_Substring_With_K_Distinct_Chars.html" />
+    <link rel="prev" title="Flood Fill" href="Flood_Fill.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -116,7 +118,7 @@ const thebe_selector_output = ".output, .cell_output"
   Easy
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Running_Sum_of_1d_Array.html">
    Running Sum of 1d Array
@@ -192,8 +194,8 @@ const thebe_selector_output = ".output, .cell_output"
    Flood Fill
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Pair_With_Target_Sum.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Pair With Target Sum
   </a>
  </li>
@@ -326,7 +328,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftemplate.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPair_With_Target_Sum.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -354,7 +356,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/template.md"
+        <a href="_sources/Pair_With_Target_Sum.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -403,7 +405,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1></h1>
+                <h1>Pair With Target Sum</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -415,10 +417,25 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="pair-with-target-sum">
+<h1>Pair With Target Sum<a class="headerlink" href="#pair-with-target-sum" title="Permalink to this headline">#</a></h1>
+<p>Given an array of sorted numbers and a target sum, find a pair in the array whose sum is equal to the given target.
+Write a function to return the indices of the two numbers (i.e. the pair) such that they add up to the given target.</p>
 <p>Implementation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>            
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pairWithTargetSum</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">target_sum</span><span class="p">):</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+        <span class="n">current_sum</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="n">right</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">current_sum</span> <span class="o">==</span> <span class="n">target_sum</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span>
+        <span class="k">if</span> <span class="n">current_sum</span> <span class="o">&lt;</span> <span class="n">target_sum</span><span class="p">:</span>
+            <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">current_sum</span> <span class="o">&gt;</span> <span class="n">target_sum</span><span class="p">:</span>
+            <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+            
 </pre></div>
 </div>
 </section>
@@ -450,6 +467,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Flood_Fill.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Flood Fill</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Longest_Substring_With_K_Distinct_Chars.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Longest Substring with K Distinct Characters</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
